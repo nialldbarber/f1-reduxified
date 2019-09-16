@@ -1,46 +1,60 @@
-- [ ] Store
-- [ ] Bring in drivers to reducers
-- [ ]
+# F1 Reduxified
 
-# Constants
+- Constants
 
-# add driver
+- add driver
 
-# remove driver
+- remove driver
 
-# edit driver
+- edit driver
 
-# Actions
+- Actions
 
-# add driver
+- add driver
 
-- a function that takes a driver object
+* a function that takes a driver object
 
-# remove driver
+- remove driver
 
-- a function that requires an id as an argument
+* a function that requires an id as an argument
 
-# edit driver
+- edit driver
 
-# Reducers
+- Reducers
 
-- firstly without immutable
-- add state as static json
+* firstly without immutable
+* add state as static json
 
-# add driver
+- add driver
 
-- can do this with a spread
+* can do this with a spread
 
-# remove driver
+- remove driver
 
-- achieve this with filter
+* achieve this with filter
 
-# edit driver
+- edit driver
 
-# Store
+- Store
 
-# Thunk
+* create store file which takes in reducer as arg
+* wrap app in provider
 
-# Components
+- Thunk
 
-# Containers
+- Components
+
+* get data outputting correctly on page component
+
+* Layout component
+  - ATOMS
+    - header
+    - button
+    - search
+    - table row
+  - MOLECULES
+    - Table
+  - Pages
+    - See drivers
+
+- Containers
