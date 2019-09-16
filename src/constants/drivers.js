@@ -1,0 +1,5 @@
+export const ADD_DRIVER = Symbol('ADD_DRIVER')
+export const REMOVE_DRIVER = Symbol('REMOVE_DRIVER')
+export const FETCH_DRIVERS_BEGIN = Symbol('FETCH_DRIVERS_BEGIN')
+export const FETCH_DRIVERS_SUCCESS = Symbol('FETCH_DRIVERS_SUCCESS')
+export const FETCH_DRIVERS_FAILURE = Symbol('FETCH_DRIVERS_FAILURE')
