@@ -2,9 +2,15 @@ import { connect } from 'react-redux'
 // Components
 import Form from 'components/molecules/form'
 // Actions
-import { addDriver } from 'actions/state/drivers'
+import {
+  addDriver,
+  setInputValues,
+  resetDriverInputValuesToNull
+} from 'actions/state/drivers'
+import { getInputValuesFromNameAttr } from 'actions/business/drivers'
 // Selectors
 import { getDriverInput } from 'selectors/drivers'
+import { store } from 'store'
 
 const mapStateToProps = (state) => {
   return {
@@ -14,8 +20,20 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleAddDriver(driver) {
-      dispatch(addDriver(driver))
+    addDriverToDriverList: (e) => {
+      e.preventDefault()
+      dispatch(
+        addDriver(
+          store
+            .getState()
+            .get('input')
+            .toJS()
+        )
+      )
+      dispatch(resetDriverInputValuesToNull())
+    },
+    mapInputValuesToNewDriver: (e) => {
+      dispatch(setInputValues(getInputValuesFromNameAttr(e)))
     }
   }
 }

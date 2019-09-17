@@ -3,6 +3,8 @@ import uuid from 'uuid'
 import {
   ADD_DRIVER,
   REMOVE_DRIVER,
+  GET_NEW_DRIVER_INPUT_VALUES,
+  RESET_DRIVER_INPUT_VALUES,
   FETCH_DRIVERS_BEGIN,
   FETCH_DRIVERS_SUCCESS,
   FETCH_DRIVERS_FAILURE
@@ -10,6 +12,15 @@ import {
 
 // init state with driver info
 const initialState = Map({
+  input: Map({
+    name: null,
+    age: null,
+    country: null,
+    team: null,
+    poles: null,
+    wins: null,
+    championships: null
+  }),
   drivers: List(),
   loading: false,
   error: null
@@ -52,6 +63,10 @@ export const driverReducer = (state = initialState, action) => {
       return {
         drivers: state.drivers.filter((driver) => driver._id !== action.id)
       }
+    case GET_NEW_DRIVER_INPUT_VALUES:
+      return state.update('input', (input) => input.concat(action.value))
+    case RESET_DRIVER_INPUT_VALUES:
+      return state.set('input', Map({}))
     default:
       return state
   }
