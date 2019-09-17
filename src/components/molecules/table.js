@@ -2,7 +2,7 @@ import React from 'react'
 // Components
 import TableRow from 'components/atoms/table-row'
 
-const Table = ({ drivers }) => {
+const Table = ({ drivers, removeDriverFromList }) => {
   return (
     <table>
       <thead>
@@ -29,6 +29,7 @@ const Table = ({ drivers }) => {
               poles={poles}
               wins={wins}
               championships={championships}
+              removeDriver={removeDriverFromList}
             />
           )
         )}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Table from 'components/molecules/table'
 // Actions
 import { fetchDrivers } from 'actions/business-sync/drivers'
+import { removeDriver } from 'actions/state/drivers'
 // Selectors
 import { getDrivers } from 'selectors/drivers'
 
@@ -14,7 +15,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetch: dispatch(fetchDrivers())
+    fetchDrivers: dispatch(fetchDrivers()),
+    removeDriverFromList: (id) => {
+      dispatch(removeDriver(id))
+    }
   }
 }
 

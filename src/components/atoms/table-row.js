@@ -1,7 +1,17 @@
 import React from 'react'
 
-const TableRow = ({ name, age, country, team, poles, wins, championships }) => (
-  <tr>
+const TableRow = ({
+  id,
+  name,
+  age,
+  country,
+  team,
+  poles,
+  wins,
+  championships,
+  removeDriver
+}) => (
+  <tr onClick={() => removeDriver(id)}>
     <td>{name}</td>
     <td>{age}</td>
     <td>{country}</td>

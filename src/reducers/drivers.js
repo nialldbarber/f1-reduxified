@@ -60,12 +60,13 @@ export const driverReducer = (state = initialState, action) => {
         })
       )
     case REMOVE_DRIVER:
-      return {
-        drivers: state.drivers.filter((driver) => driver._id !== action.id)
-      }
+      return state.update('drivers', (drivers) =>
+        drivers.filter((driver) => driver._id !== action.id)
+      )
     case GET_NEW_DRIVER_INPUT_VALUES:
       return state.update('input', (input) => input.concat(action.value))
     case RESET_DRIVER_INPUT_VALUES:
+      // remove input values on submit
       return state.set('input', Map({}))
     default:
       return state
