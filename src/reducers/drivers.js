@@ -19,11 +19,13 @@ const initialState = Map({
 export const driverReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_DRIVERS_BEGIN:
+      console.log('fetching...')
       return state
         .set('drivers', List())
         .set('loading', true)
         .set('error', null)
     case FETCH_DRIVERS_SUCCESS:
+      console.log('fetch successful!')
       return state.set('drivers', action.drivers).set('loading', false)
     case FETCH_DRIVERS_FAILURE:
       return state
