@@ -2,7 +2,7 @@ import {
   fetchDriversBegin,
   fetchDriversSuccess,
   fetchDriversFailure
-} from 'actions/drivers'
+} from 'actions/state/drivers'
 
 export const fetchDrivers = () => {
   return (dispatch) => {

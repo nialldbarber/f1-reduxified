@@ -1,3 +1,4 @@
+import { Map, List } from 'immutable'
 import uuid from 'uuid'
 import {
   ADD_DRIVER,
@@ -8,51 +9,43 @@ import {
 } from 'constants/drivers'
 
 // init state with driver info
-const initialState = {
-  drivers: [],
+const initialState = Map({
+  drivers: List(),
   loading: false,
   error: null
-}
+})
 
 // reducer function
 export const driverReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_DRIVERS_BEGIN:
-      return {
-        drivers: [],
-        loading: true,
-        error: null
-      }
+      return state
+        .set('drivers', List())
+        .set('loading', true)
+        .set('error', null)
     case FETCH_DRIVERS_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        drivers: action.drivers
-      }
+      return state.set('drivers', action.drivers).set('loading', false)
     case FETCH_DRIVERS_FAILURE:
-      return {
-        ...state,
-        loading: false,
-        error: action.error,
-        drivers: []
-      }
+      return state
+        .set('drivers', List())
+        .set('loading', false)
+        .set('error', action.error)
     case ADD_DRIVER:
-      return {
-        ...state,
-        drivers: [
-          ...state.drivers,
-          {
-            _id: uuid(),
-            name: action.driver.name,
-            age: action.driver.age,
-            country: action.driver.country,
-            team: action.driver.team,
-            poles: action.driver.poles,
-            wins: action.driver.wins,
-            championships: action.driver.championships
-          }
-        ]
-      }
+      const {
+        driver: { name, age, country, team, poles, wins, championships }
+      } = action
+      return state.update('drivers', (drivers) =>
+        drivers.concat({
+          _id: uuid(),
+          name,
+          age,
+          country,
+          team,
+          poles,
+          wins,
+          championships
+        })
+      )
     case REMOVE_DRIVER:
       return {
         drivers: state.drivers.filter((driver) => driver._id !== action.id)

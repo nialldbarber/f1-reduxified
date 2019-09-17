@@ -1,10 +1,14 @@
 import { connect } from 'react-redux'
+// Components
 import Table from 'components/molecules/table'
-import { fetchDrivers } from 'business-sync/drivers'
+// Actions
+import { fetchDrivers } from 'actions/business-sync/drivers'
+// Selectors
+import { getDrivers } from 'selectors/drivers'
 
 const mapStateToProps = (state) => {
   return {
-    drivers: state.drivers
+    drivers: getDrivers(state)
   }
 }
 

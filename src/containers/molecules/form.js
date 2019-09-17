@@ -1,10 +1,14 @@
 import { connect } from 'react-redux'
+// Components
 import Form from 'components/molecules/form'
-import { addDriver } from 'actions/drivers'
+// Actions
+import { addDriver } from 'actions/state/drivers'
+// Selectors
+import { getDriverInput } from 'selectors/drivers'
 
 const mapStateToProps = (state) => {
   return {
-    input: state.input
+    input: getDriverInput(state)
   }
 }
 
