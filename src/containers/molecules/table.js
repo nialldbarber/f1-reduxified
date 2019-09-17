@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchDrivers: dispatch(fetchDrivers()),
+    fetchDrivers: () => dispatch(fetchDrivers()),
     removeDriverFromList: (id) => {
       dispatch(removeDriver(id))
     }

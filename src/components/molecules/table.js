@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // Components
 import TableRow from 'components/atoms/table-row'
 
-const Table = ({ drivers, removeDriverFromList }) => {
+const Table = ({ drivers, fetchDrivers, removeDriverFromList }) => {
+  useEffect(() => {
+    fetchDrivers()
+  }, [fetchDrivers])
+
   return (
     <table>
       <thead>
