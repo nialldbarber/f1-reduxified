@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 // Components
-import Form from 'components/molecules/form'
+import Form from 'components/form'
 // Actions
 import {
   addDriver,

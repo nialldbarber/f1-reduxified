@@ -1,7 +1,7 @@
 import React from 'react'
 // Components
-import Form from 'containers/molecules/form'
-import Table from 'containers/molecules/table'
+import Form from 'containers/form'
+import Table from 'containers/table'
 
 const Layout = () => (
   <div>

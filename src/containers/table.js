@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 // Components
-import Table from 'components/molecules/table'
+import Table from 'components/table'
 // Actions
 import { fetchDrivers } from 'actions/business-sync/drivers'
 import { removeDriver } from 'actions/state/drivers'

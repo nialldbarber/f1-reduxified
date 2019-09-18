@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 // Components
-import TableRow from 'components/atoms/table-row'
+import TableRow from 'components/table-row'
 
 const Table = ({ drivers, fetchDrivers, removeDriverFromList }) => {
   useEffect(() => {
